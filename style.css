@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Silkscreen&display=swap');
+
+body {
+    font-family: 'Silkscreen', Lato, "Lucida Grande", Tahoma, Sans-Serif;
+    display: flex;
+    overflow-y: hidden;
+}
+
+p, button, input {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.footer-link {
+    color: aliceblue;
+}
+
+.login-link {
+    color: rgb(58, 49, 138);
+}
+
+.sidebar {
+    position: relative;
+}
+
+footer {
+    color: aliceblue;
+    font-weight: 100;
+    text-align: center;
+    position: absolute;
+    width: 100%;
+    bottom: 0px;
+}
+
+.hero {
+    top: 200px;
+    display: flex;
+    align-items: center;
+    background-color: rgba(240, 248, 255, 0.582);
+    position: absolute;
+    width: 100%;
+}
+
+.logo {
+    margin-left: auto;
+}
+
+.title {
+    margin-right: auto;
+    font-size: 35px;
+}
+
+.background {
+    height: 100vh;
+}
+
+.upperFormText {
+    font-weight: 600;
+    font-size: x-large;
+}
+
+form {
+    width: 550px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.form-container {
+    width: 200px;
+    margin: 25px 25px 25px 0px;
+}
+
+input {
+    margin-top: 3px;
+    padding: 5px;
+    border: none;
+    -webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+    width: 200px;
+    height: 1em;
+    outline: none;
+    border-radius: 3px;
+    border: 1px solid silver;
+}
+
+input:focus {
+    border: 1px solid grey;
+    transition: border-color 0.3s ease;
+}
+
+input:invalid {
+    border: 1px solid red
+}
+
+input:valid {
+    border: 1px solid green;
+}
+
+.form-section {
+    margin-left: 50px;
+    width: 600px;
+    align-self: center;
+}
