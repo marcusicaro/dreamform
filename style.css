@@ -138,5 +138,23 @@ button:active {
 }
 
 .green {
-    background-color: green;
+    border: 1px solid green;
+    transition: border-color 0.3s ease;
+}
+
+.red {
+    border: 1px solid red;
+    transition: border-color 0.3s ease;
+}
+
+#para-1 {
+    font-size: 12px;
+    color: red;
+    margin: 0px;
+}
+
+#para-2 {
+    font-size: 12px;
+    color: red;
+    margin: 0px;
 }

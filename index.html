@@ -69,7 +69,6 @@
         const confirm = document.querySelector('#confirm');
         const check = document.querySelector('#passcheck');
         const confirmCheck = document.querySelector('#confirmcheck');
-        var confirmation = console.log('123213');
 
         const invalidPass = document.createElement('p');
         invalidPass.setAttribute('id','para-1');
@@ -77,44 +76,39 @@
         const passText = document.querySelector('#para-1');
 
         password.addEventListener('input', function(){
-            if (password.checkValidity() == false){
-                passText.textContent = '* passwords must contain between 6-10 characters';
+            if (password.checkValidity() == false && password.value == '') {
+                check.removeChild(invalidPass);
             } else if (password.checkValidity() == true) {
                 check.removeChild(invalidPass);
+            } else if (password.checkValidity() == false && password.value != '') {
+                check.appendChild(invalidPass);
+                passText.textContent = '* password must contain between 6-10 characters';
             }
         });
 
-        // const invalidConfirm = document.createElement('p');
-        // invalidConfirm.setAttribute('id','para-2');
-        // var confirmText = document.querySelector('#para-2');
+        const confirmText = document.createElement('p');
+        confirmText.setAttribute('id', 'para-2');
+        confirmCheck.appendChild(confirmText);
+        const confirmError = document.querySelector('#para-2');
 
         confirm.addEventListener('input', function(){
-            if (password.value == confirm.value) {
-
-                confirm.setCustomValidity('valid');
-                console.log(confirm.checkValidity());
-                // console.log(password.value);
-                // console.log(confirm.value);
-                // password.classList.add('green');
-                // confirm.classList.add('green');
-                // confirm.setAttribute('pattern','');
-                // invalidConfirm.removeChild(confirmText);
+            if (password.value == confirm.value && password.value != '') {
+                confirm.style.border = "1px solid green";
+                confirmCheck.removeChild(confirmText)
+            } else if (password.value == confirm.value && password.value == '') {
+                // confirm.style.border = "1px solid silver";
+                confirm.removeAttribute('style');
+                confirmCheck.removeChild(confirmText)
             } else {
-                confirm.setCustomValidity('invalid');
-                console.log(confirm.checkValidity());
-                // confirm.setAttribute('pattern','[a-zA-Z0-9]{6,10}');
-                // password.classList.remove('green');
-                // confirm.classList.remove('green');
-                // console.log(password.value)
-                // console.log(confirm.value)
-                // invalidConfirm.appendChild(confirmText);
-                // confirmText.textContent = '*password does not match';
+                confirm.style.border = "1px solid red";
+                confirmText.textContent = 'password does not match'
             }
+            
         });
 
 
-        console.log(password.value)
-        console.log(confirm.value)
+        // console.log(password.value)
+        // console.log(confirm.value)
 
 
         // confirm.addEventListener('input', passwordConfirm())
