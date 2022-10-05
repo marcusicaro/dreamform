@@ -84,21 +84,59 @@ input {
     border: 1px solid silver;
 }
 
+input:required {
+    border: 1px solid silver;
+}
+
 input:focus {
     border: 1px solid grey;
     transition: border-color 0.3s ease;
 }
 
-input:invalid {
-    border: 1px solid red
-}
-
 input:valid {
     border: 1px solid green;
+    transition: border-color 0.3s ease;
+}
+
+input:invalid {
+    border: 1px solid red;
+    transition: border-color 0.3s ease;
+}
+
+input:placeholder-shown {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    border: 1px solid silver;
+}
+
+input:placeholder-shown:focus {
+    border: 1px solid grey;
 }
 
 .form-section {
     margin-left: 50px;
     width: 600px;
     align-self: center;
+}
+
+button {
+    -webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+    border: none;
+    border-radius: 5px;
+    padding: 12px;
+    background-color: blue;
+    color: antiquewhite;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+.green {
+    background-color: green;
 }

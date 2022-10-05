@@ -19,7 +19,7 @@
     </div>
     <div class="form-section">
         <div class="upperFormText">
-            <p>This is not a real online service! You know you need something like this in your life to help you realize your deepest dreams. <br>
+            <p>Not a real online service! Discover a new meaning for <em>Cyberpunk</em>. A world where you can truly be anything you want. 
                 Sign up <em>now</em> to get started.
             </p>
             <p>You <em>know</em> you want to.</p>
@@ -29,39 +29,97 @@
             <form action="mockup">
                 <div class="form-container">
                     <label for="fname">first name</label>
-                    <input type="text" id="fname" pattern="[a-z]{2,}">
+                    <input type="text" id="fname" class="input" pattern="[A-Z]{1,1}[a-z]{1,}" placeholder="Your first name">
                 </div>
 
                 <div class="form-container">
                     <label for="lname">last name</label>
-                    <input type="text" name="lname" id="lname" pattern="[a-z]{2,}>
+                    <input type="text" name="lname" id="lname" class="input" pattern="[A-Z]{1,1}[a-z]{1,}" placeholder="Your last name">
                 </div>
 
                 <div class="form-container">
                     <label for="email">email</label>
-                    <input type="email" id="email">
+                    <input type="email" id="email" placeholder="Your email address">
                 </div>
 
                 <div class="form-container">
                     <label for="phone">phone number</label>
-                    <input type="tel" id="phone" pattern="[0-9]{2}-[0-9]{5}-[0-9]{4}|[0-9]{11}">
+                    <input type="tel" id="phone" class="input" pattern="[0-9]{2}-[0-9]{5}-[0-9]{4}|[0-9]{11}" placeholder="Your phone number">
                 </div>
 
-                <div class="form-container">
+                <div class="form-container" id="passcheck">
                     <label for="password">password</label>
-                    <input type="password" name="password" id="password">
+                    <input type="password" name="password" id="password" class="input error" pattern="[a-zA-Z0-9]{6,10}" placeholder="6-10 characters" required>
                 </div>
 
-                <div class="form-container">
+                <div class="form-container" id="confirmcheck">
                     <label for="confirm">confirm password</label>
-                    <input type="password" name="confirm" id="confirm">
+                    <input type="password" name="confirm" id="confirm" class="input error" placeholder="Confirm your password" required>
                 </div>
 
             </form>
         </div>
-        <button>Create Account</button>
+        <button type="submit">Create Account</button>
         <p>Already have an account? <a href="" class="login-link">Log in</a></p>
     </div>
     
+
+    <script>
+        const password = document.querySelector('#password');
+        const confirm = document.querySelector('#confirm');
+        const check = document.querySelector('#passcheck');
+        const confirmCheck = document.querySelector('#confirmcheck');
+        var confirmation = console.log('123213');
+
+        const invalidPass = document.createElement('p');
+        invalidPass.setAttribute('id','para-1');
+        check.appendChild(invalidPass);
+        const passText = document.querySelector('#para-1');
+
+        password.addEventListener('input', function(){
+            if (password.checkValidity() == false){
+                passText.textContent = '* passwords must contain between 6-10 characters';
+            } else if (password.checkValidity() == true) {
+                check.removeChild(invalidPass);
+            }
+        });
+
+        // const invalidConfirm = document.createElement('p');
+        // invalidConfirm.setAttribute('id','para-2');
+        // var confirmText = document.querySelector('#para-2');
+
+        confirm.addEventListener('input', function(){
+            if (password.value == confirm.value) {
+
+                confirm.setCustomValidity('valid');
+                console.log(confirm.checkValidity());
+                // console.log(password.value);
+                // console.log(confirm.value);
+                // password.classList.add('green');
+                // confirm.classList.add('green');
+                // confirm.setAttribute('pattern','');
+                // invalidConfirm.removeChild(confirmText);
+            } else {
+                confirm.setCustomValidity('invalid');
+                console.log(confirm.checkValidity());
+                // confirm.setAttribute('pattern','[a-zA-Z0-9]{6,10}');
+                // password.classList.remove('green');
+                // confirm.classList.remove('green');
+                // console.log(password.value)
+                // console.log(confirm.value)
+                // invalidConfirm.appendChild(confirmText);
+                // confirmText.textContent = '*password does not match';
+            }
+        });
+
+
+        console.log(password.value)
+        console.log(confirm.value)
+
+
+        // confirm.addEventListener('input', passwordConfirm())
+
+
+    </script>
 </body>
 </html>
